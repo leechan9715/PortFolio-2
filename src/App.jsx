@@ -1,6 +1,7 @@
 import { useLenis } from "./hooks/useLenis";
 import { Hero } from "./sections/Hero";
 import { About } from "./sections/About";
+import { Process } from "./sections/Process";
 
 function App() {
   useLenis();
@@ -9,7 +10,7 @@ function App() {
     <main className="relative w-full bg-[var(--bg-primary)] text-[var(--text-primary)]">
       <Hero />
       <About />
-      <section id="process" className="min-h-screen flex items-center justify-center">Process</section>
+      <Process />
       <section id="skills" className="min-h-screen flex items-center justify-center">Skills</section>
       <section id="projects" className="min-h-screen flex items-center justify-center">Projects</section>
       <section id="certifications" className="min-h-screen flex items-center justify-center">Certifications</section>
