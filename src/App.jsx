@@ -1,4 +1,5 @@
 import { useLenis } from "./hooks/useLenis";
+import { Navbar } from "./components/Navbar";
 import { Hero } from "./sections/Hero";
 import { About } from "./sections/About";
 import { Process } from "./sections/Process";
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <main className="relative w-full bg-[var(--bg-primary)] text-[var(--text-primary)]">
+      <Navbar />
       <Hero />
       <About />
       <Process />
