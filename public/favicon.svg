@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1c0a3a"/>
+      <stop offset="100%" stop-color="#0a0a1c"/>
+    </linearGradient>
+    <linearGradient id="bracket" x1="0" y1="7" x2="0" y2="25" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="slash" x1="20" y1="7" x2="12" y2="25" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7dd3fc"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="32" height="32" rx="7" fill="url(#bg)"/>
+
+  <!-- < 브라켓 -->
+  <polyline points="11,7 5,16 11,25" stroke="url(#bracket)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- > 브라켓 -->
+  <polyline points="21,7 27,16 21,25" stroke="url(#bracket)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- / 슬래시 -->
+  <line x1="20" y1="7" x2="12" y2="25" stroke="url(#slash)" stroke-width="2.6" stroke-linecap="round"/>
+</svg>

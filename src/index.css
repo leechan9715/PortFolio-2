@@ -1,0 +1,222 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+@import "tailwindcss";
+
+:root {
+  --dark-gradient: rgba(7, 26, 42, 0.7);
+  --deepdark-gradient: rgba(6, 21, 34, 0.5);
+  --full-absolute-bg: radial-gradient(
+    closest-side,
+    rgba(10, 34, 73, 0.6) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+
+  --main-title-color: linear-gradient(
+    0deg,
+    rgba(0, 140, 255, 1) 0%,
+    rgb(255, 255, 255) 70%
+  );
+  --text-color: linear-gradient(
+    185.57deg,
+    rgba(0, 140, 255, 1) 0%,
+    rgba(0, 200, 255, 1) 100%
+  );
+  --button-hover: linear-gradient(
+    185.57deg,
+    rgba(0, 140, 255, 0.8) 0%,
+    rgba(0, 200, 255, 0.8) 100%
+  );
+  --button-bg: linear-gradient(
+    90deg,
+    rgba(7, 17, 31, 0.6) 0%,
+    rgba(12, 24, 40, 0.6) 50%,
+    rgba(5, 10, 18, 0.6) 100%
+  );
+  --border: #0d4f73;
+  --hover-border: #2bb3fd;
+}
+
+img {
+  object-fit: cover;
+}
+
+.skill-icon-swiper {
+  width: 100%;
+  min-width: 0;
+}
+
+.skill-icon-swiper .swiper-wrapper {
+  align-items: center;
+}
+
+.skill-icon-swiper .skill-icon-slide {
+  width: 80px !important;
+  flex-shrink: 0;
+}
+
+.skill-icon-slide > div {
+  width: 80px;
+}
+
+.project-swiper {
+  padding-bottom: 2.5rem;
+}
+
+.project-swiper .swiper-pagination {
+  bottom: 0;
+  z-index: 10;
+}
+
+.project-swiper .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.65);
+  opacity: 1;
+}
+
+.project-swiper .swiper-pagination-bullet-active {
+  background: #2bb3fd;
+}
+
+.skill-icon-image {
+  width: 3rem;
+  min-width: 3rem;
+  height: 3rem;
+  display: block;
+}
+
+.project-list-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(43, 179, 253, 0.7) rgba(13, 79, 115, 0.25);
+}
+
+.project-list-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.project-list-scroll::-webkit-scrollbar-track {
+  background: rgba(13, 79, 115, 0.25);
+  border-radius: 999px;
+}
+
+.project-list-scroll::-webkit-scrollbar-thumb {
+  background: rgba(43, 179, 253, 0.7);
+  border-radius: 999px;
+}
+
+.section-profile-enter {
+  animation: sectionProfileEnter 1s ease forwards;
+  opacity: 0;
+  transform: translateX(-32px);
+}
+
+.section-content-enter {
+  animation: sectionContentEnter 0.75s ease-in-out 0.75s forwards;
+  max-height: 0;
+}
+
+.section-profile-leave {
+  animation: sectionProfileLeave 0.75s ease 0.75s forwards;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.section-content-leave {
+  animation: sectionContentLeave 0.75s ease-in-out forwards;
+  max-height: 100%;
+}
+
+@keyframes sectionProfileEnter {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes sectionProfileLeave {
+  to {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+}
+
+@keyframes sectionContentEnter {
+  to {
+    max-height: 100%;
+  }
+}
+
+@keyframes sectionContentLeave {
+  to {
+    max-height: 0;
+  }
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-height: 100%;
+    color: white;
+    overflow: hidden;
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: "Pretendard", sans-serif;
+    background: url("./assets/img/bg-1.png") no-repeat center center;
+    background-size: cover;
+    position: relative;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: url("./assets/img/bg-2.png") no-repeat center center;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    pointer-events: none;
+  }
+
+  body.bg-2-active::after {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  html {
+    overflow: scroll;
+  }
+}
+
+/* Custom styles for Filter Chips and Project Animations */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-project-item {
+  animation: fadeInScale 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
