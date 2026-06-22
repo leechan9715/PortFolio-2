@@ -3,6 +3,7 @@ import { Hero } from "./sections/Hero";
 import { About } from "./sections/About";
 import { Process } from "./sections/Process";
 import { Skills } from "./sections/Skills";
+import { Projects } from "./sections/Projects";
 
 function App() {
   useLenis();
@@ -13,7 +14,7 @@ function App() {
       <About />
       <Process />
       <Skills />
-      <section id="projects" className="min-h-screen flex items-center justify-center">Projects</section>
+      <Projects />
       <section id="certifications" className="min-h-screen flex items-center justify-center">Certifications</section>
       <section id="contact" className="min-h-screen flex items-center justify-center">Contact</section>
     </main>
