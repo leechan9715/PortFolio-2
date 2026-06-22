@@ -32,8 +32,8 @@ export function Projects() {
   );
 
   return (
-    <section id="projects" ref={root} className="relative overflow-hidden">
-      <div className="h-screen flex flex-col justify-center">
+    <section id="projects" ref={root} className="relative md:overflow-hidden">
+      <div className="md:h-screen flex flex-col justify-center max-md:py-24">
         <div className="px-6 md:px-20 mb-8">
           <h2 className="text-sm tracking-[0.3em] text-[var(--accent-glow)] uppercase mb-2">
             Selected Work
