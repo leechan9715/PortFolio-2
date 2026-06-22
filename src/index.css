@@ -2,35 +2,18 @@
 @import "tailwindcss";
 
 :root {
-  --dark-gradient: rgba(7, 26, 42, 0.7);
-  --deepdark-gradient: rgba(6, 21, 34, 0.5);
-  --full-absolute-bg: radial-gradient(
-    closest-side,
-    rgba(10, 34, 73, 0.6) 0%,
-    rgba(0, 0, 0, 0.3) 100%
-  );
+  /* 신규 리뉴얼 토큰 */
+  --bg-primary: #060d1f;
+  --bg-secondary: #0d1730;
+  --bg-glass: rgba(13, 23, 48, 0.6);
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --accent-glow: #60a5fa;
+  --text-primary: #f1f5f9;
+  --text-muted: #64748b;
+  --border-glow: rgba(59, 130, 246, 0.15);
 
-  --main-title-color: linear-gradient(
-    0deg,
-    rgba(0, 140, 255, 1) 0%,
-    rgb(255, 255, 255) 70%
-  );
-  --text-color: linear-gradient(
-    185.57deg,
-    rgba(0, 140, 255, 1) 0%,
-    rgba(0, 200, 255, 1) 100%
-  );
-  --button-hover: linear-gradient(
-    185.57deg,
-    rgba(0, 140, 255, 0.8) 0%,
-    rgba(0, 200, 255, 0.8) 100%
-  );
-  --button-bg: linear-gradient(
-    90deg,
-    rgba(7, 17, 31, 0.6) 0%,
-    rgba(12, 24, 40, 0.6) 50%,
-    rgba(5, 10, 18, 0.6) 100%
-  );
+  /* 기존 호환 토큰 (점진 제거) */
   --border: #0d4f73;
   --hover-border: #2bb3fd;
 }
@@ -150,51 +133,25 @@ img {
 }
 
 @layer base {
-  *,
-  ::before,
-  ::after {
-    box-sizing: border-box;
-  }
+  *, ::before, ::after { box-sizing: border-box; }
 
-  html,
-  body,
-  #root {
+  html, body, #root {
     width: 100%;
     min-height: 100%;
-    color: white;
-    overflow: hidden;
+    color: var(--text-primary);
   }
 
   body {
     margin: 0;
     overflow-x: hidden;
     font-family: "Pretendard", sans-serif;
-    background: url("./assets/img/bg-1.png") no-repeat center center;
-    background-size: cover;
+    background: var(--bg-primary);
     position: relative;
-  }
-
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background: url("./assets/img/bg-2.png") no-repeat center center;
-    background-size: cover;
-    opacity: 0;
-    transition: opacity 1.2s ease;
-    pointer-events: none;
-  }
-
-  body.bg-2-active::after {
-    opacity: 1;
   }
 }
 
 @media (max-width: 1024px) {
-  html {
-    overflow: scroll;
-  }
+  html { overflow-x: hidden; }
 }
 
 /* Custom styles for Filter Chips and Project Animations */
@@ -219,4 +176,27 @@ img {
 
 .animate-project-item {
   animation: fadeInScale 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glow);
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.05);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(120px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
 }
