@@ -4,7 +4,7 @@ export function ProjectCard({ src, title, desc, link, skills, index, total }) {
       href={link}
       target="_blank"
       rel="noreferrer"
-      className="project-card group relative w-[80vw] md:w-[42vw] shrink-0 glass rounded-2xl overflow-hidden flex flex-col"
+      className="project-card group relative w-[80vw] md:w-[42vw] max-md:w-full shrink-0 glass rounded-2xl overflow-hidden flex flex-col"
     >
       <div className="relative h-[55vh] overflow-hidden">
         <img

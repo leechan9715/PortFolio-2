@@ -11,6 +11,7 @@ export function Projects() {
 
   useGSAP(
     () => {
+      if (window.innerWidth < 768) return; // 모바일은 세로 스크롤 유지
       const trackEl = track.current;
       const scrollLen = trackEl.scrollWidth - window.innerWidth;
 
@@ -39,7 +40,7 @@ export function Projects() {
           </h2>
           <h3 className="text-4xl font-bold">Projects</h3>
         </div>
-        <div ref={track} className="flex gap-8 px-6 md:px-20 w-max">
+        <div ref={track} className="flex gap-8 px-6 md:px-20 w-max max-md:flex-col max-md:w-full max-md:gap-6">
           {projects.map((p, i) => (
             <ProjectCard key={p.title} {...p} index={i} total={projects.length} />
           ))}
