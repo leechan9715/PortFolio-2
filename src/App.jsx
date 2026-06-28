@@ -9,6 +9,7 @@ import { Skills } from "./sections/Skills";
 import { Projects } from "./sections/Projects";
 import { Contact } from "./sections/Contact";
 import { Intro } from "./components/Intro";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   useLenis();
@@ -53,6 +54,7 @@ function App() {
       <Skills />
       <Projects />
       <Contact />
+      <Analytics />
     </main>
   );
 }
