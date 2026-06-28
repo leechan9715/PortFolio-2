@@ -47,7 +47,7 @@ export const teamProjectInfo = [
         label: "간트차트",
         link: "https://docs.google.com/spreadsheets/d/13GazU9eCavfxvy6y3nxorqrsIXHQIMl7fW89MIOw1IM/edit?gid=0#gid=0",
       },
-      { label: "기획안" },
+      { label: "기획안", pdf: "files/MUTE_기획안.pdf" },
       {
         label: "GitHub",
         link: "https://github.com/leechan9715/mutehtml/tree/vue/main",
@@ -108,7 +108,7 @@ export const teamProjectInfo = [
         link: "https://vercel-frontend-goreon.vercel.app/pc-assembly",
       },
       { label: "반응형" },
-      { label: "기획안" },
+      { label: "기획안", pdf: "files/Goreon_기획안.pdf" },
       {
         label: "GitHub",
         link: "https://github.com/muteLJS/GOREON",

@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { lenisInstance } from "../hooks/useLenis";
 
 export function ProjectModal({ project, onClose }) {
+  const [pdfUrl, setPdfUrl] = useState(null);
   useEffect(() => {
     // 배경 페이지 스크롤 막기 (lenis 정지 + body 잠금 — 모바일 네이티브 터치 스크롤까지 차단)
     if (lenisInstance) lenisInstance.stop();
@@ -47,6 +48,7 @@ export function ProjectModal({ project, onClose }) {
   const techs = techInfo ? techInfo.value.split(/[·,]/).map((t) => t.trim()).filter(Boolean) : [];
 
   return (
+    <>
     <div
       className="modal-backdrop fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
       style={{ background: "rgba(6, 13, 31, 0.85)", backdropFilter: "blur(8px)" }}
@@ -126,7 +128,15 @@ export function ProjectModal({ project, onClose }) {
               <p className="text-xs tracking-widest text-[var(--text-muted)] uppercase mb-3">Links</p>
               <div className="flex flex-wrap gap-2">
                 {links.map((l, i) =>
-                  l.link ? (
+                  l.pdf ? (
+                    <button
+                      key={i}
+                      onClick={() => setPdfUrl(encodeURI(import.meta.env.BASE_URL + l.pdf))}
+                      className="px-4 py-2 rounded-full text-xs font-medium border border-[var(--accent-purple)]/40 text-[var(--accent-purple)] bg-[var(--accent-purple)]/10 hover:border-[var(--accent-green)] hover:text-[var(--accent-green)] transition-all cursor-pointer"
+                    >
+                      {l.label}
+                    </button>
+                  ) : l.link ? (
                     <a
                       key={i}
                       href={l.link}
@@ -151,5 +161,53 @@ export function ProjectModal({ project, onClose }) {
         </div>
       </div>
     </div>
+
+      {pdfUrl && (
+        <div
+          className="fixed inset-0 z-[300] flex items-center justify-center p-4 md:p-8"
+          style={{ background: "rgba(6, 13, 31, 0.92)", backdropFilter: "blur(10px)" }}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setPdfUrl(null);
+          }}
+        >
+          <div
+            className="relative w-full max-w-5xl h-[90vh] rounded-2xl overflow-hidden flex flex-col"
+            style={{
+              background: "rgba(13, 23, 48, 0.97)",
+              border: "1px solid rgba(139, 92, 246, 0.25)",
+              boxShadow: "0 0 60px rgba(139, 92, 246, 0.2)",
+            }}
+          >
+            <div className="flex items-center justify-between px-5 py-3 border-b border-white/10 shrink-0">
+              <span className="text-sm font-semibold tracking-wide text-[var(--text-primary)]">기획안</span>
+              <div className="flex items-center gap-2">
+                <a
+                  href={pdfUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-3 py-1.5 rounded-full text-xs font-medium border border-[#26324f] text-[var(--text-muted)] hover:border-[var(--accent-green)] hover:text-[var(--accent-green)] transition-all"
+                >
+                  새 탭으로 열기
+                </a>
+                <button
+                  onClick={() => setPdfUrl(null)}
+                  aria-label="닫기"
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-[var(--text-muted)] hover:text-white hover:bg-white/10 transition-all"
+                >
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                    <path d="M1 1l11 11M12 1L1 12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <iframe
+              src={pdfUrl}
+              title="기획안 미리보기"
+              className="w-full flex-1 bg-white"
+            />
+          </div>
+        </div>
+      )}
+    </>
   );
 }
