@@ -19,7 +19,7 @@ export function Intro({ onComplete }) {
       },
     });
 
-    // 전체 재생 시간 2.0초 밸런스 연출
+    // 전체 재생 시간 2.5초 밸런스 연출 (마지막에 totalDuration으로 정확히 맞춤)
     // 1. 로고 등장: 0s ~ 0.6s 동안 scale 0.65에서 1.15로 묵직하게 확장되며 drop-shadow 네온 빛을 뿜으며 등장
     tl.fromTo(
       logoRef.current,
@@ -62,6 +62,9 @@ export function Intro({ onComplete }) {
         "-=0.8",
       );
 
+    // 연출 비율은 유지한 채 전체 길이를 정확히 2.5초로 스케일
+    tl.totalDuration(2.5);
+
     return () => {
       tl.kill();
     };
@@ -96,10 +99,9 @@ export function Intro({ onComplete }) {
       <div className="relative z-10 flex flex-col items-center select-none pointer-events-none">
         <h1
           ref={logoRef}
-          className="flex items-center font-black text-6xl md:text-8xl"
+          className="text-gradient font-black text-center whitespace-nowrap tracking-[0.12em] text-[clamp(2rem,11vw,7rem)]"
         >
-          <span className="text-gradient pr-1.5 md:pr-3">S</span>
-          <span className="relative text-gradient pl-1.5 md:pl-3">C</span>
+          SEUNGCHAN
         </h1>
       </div>
 

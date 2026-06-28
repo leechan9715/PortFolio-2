@@ -83,37 +83,6 @@ export function About() {
             <p className="about-line text-base text-[var(--text-muted)] leading-relaxed mt-4 [word-break:keep-all]">
               빛나는 디테일과 유연한 움직임으로 직관적인 흐름을 설계하고, 사용자 중심의 견고한 기술을 화면으로 구현하는 프론트엔드 개발자 이승찬입니다.
             </p>
-            <a
-              href={encodeURI(import.meta.env.BASE_URL + "files/이승찬_이력서.pdf")}
-              target="_blank"
-              rel="noreferrer"
-              className="about-line mt-6 inline-flex w-fit items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all cursor-pointer hover:-translate-y-0.5"
-              style={{
-                background:
-                  "linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box, linear-gradient(120deg, #8b5cf6, #34d399) border-box",
-                border: "1px solid transparent",
-                color: "#f1f5f9",
-                boxShadow: "0 0 16px rgba(139,92,246,0.25)",
-              }}
-            >
-              <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-                <path
-                  d="M4 1.5h4.5L11.5 4.5v9h-7.5v-12z"
-                  stroke="url(#rg)"
-                  strokeWidth="1.1"
-                  strokeLinejoin="round"
-                />
-                <path d="M8.5 1.5v3h3" stroke="url(#rg)" strokeWidth="1.1" strokeLinejoin="round" />
-                <path d="M7.5 7v4M5.7 9.2L7.5 11l1.8-1.8" stroke="url(#rg)" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />
-                <defs>
-                  <linearGradient id="rg" x1="0" y1="0" x2="15" y2="15" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#8b5cf6" />
-                    <stop offset="1" stopColor="#34d399" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              이력서 보기
-            </a>
           </div>
 
           {/* 기본 정보 */}

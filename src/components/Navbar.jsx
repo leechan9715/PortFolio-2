@@ -36,6 +36,8 @@ export function Navbar() {
 
   const handleLinkClick = () => setMobileOpen(false);
 
+  const resumeUrl = encodeURI(import.meta.env.BASE_URL + "files/이승찬_이력서.pdf");
+
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -53,14 +55,31 @@ export function Navbar() {
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-10 py-6">
         <a href="#hero" className="font-black text-2xl text-gradient tracking-tight" onClick={handleLinkClick}>SC.</a>
 
-        {/* 데스크탑 링크 */}
-        <ul className="hidden md:flex gap-10 text-base font-semibold text-slate-300">
-          {links.map((l) => (
-            <li key={l.id}>
-              <a href={`#${l.id}`} className="hover:text-white transition-colors duration-200">{l.label}</a>
-            </li>
-          ))}
-        </ul>
+        {/* 데스크탑 링크 + 이력서 */}
+        <div className="hidden md:flex items-center gap-8">
+          <ul className="flex gap-10 text-base font-semibold text-slate-300">
+            {links.map((l) => (
+              <li key={l.id}>
+                <a href={`#${l.id}`} className="hover:text-white transition-colors duration-200">{l.label}</a>
+              </li>
+            ))}
+          </ul>
+          <a
+            href={resumeUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="px-4 py-2 rounded-full text-sm font-semibold transition-all hover:-translate-y-0.5"
+            style={{
+              background:
+                "linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box, linear-gradient(120deg, #8b5cf6, #34d399) border-box",
+              border: "1px solid transparent",
+              color: "#f1f5f9",
+              boxShadow: "0 0 16px rgba(139,92,246,0.25)",
+            }}
+          >
+            이력서
+          </a>
+        </div>
 
         {/* 모바일 햄버거 버튼 */}
         <button
@@ -113,6 +132,25 @@ export function Navbar() {
               {l.label}
             </a>
           ))}
+          <a
+            href={resumeUrl}
+            target="_blank"
+            rel="noreferrer"
+            onClick={handleLinkClick}
+            className={`mt-2 px-7 py-3 rounded-full text-2xl font-black transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              mobileOpen ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
+            }`}
+            style={{
+              transitionDelay: mobileOpen ? `${links.length * 70}ms` : "0ms",
+              background:
+                "linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box, linear-gradient(120deg, #8b5cf6, #34d399) border-box",
+              border: "1px solid transparent",
+              color: "#f1f5f9",
+              boxShadow: "0 0 20px rgba(139,92,246,0.3)",
+            }}
+          >
+            이력서
+          </a>
         </div>
       </div>
     </header>
