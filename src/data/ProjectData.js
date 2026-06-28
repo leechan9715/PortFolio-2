@@ -6,10 +6,13 @@ import Shop from "../assets/img/shop.png";
 import Netflix from "../assets/img/netflix.png";
 import PortFolio2 from "../assets/img/portfolio-2.png";
 import Kakao from "../assets/img/kakao.png";
+import LoopNote from "../assets/img/LoopNote.png";
+import WorkLog from "../assets/img/WorkLog.png";
 
 export const teamProjectInfo = [
   {
     title: "MUTE",
+    summary: "Vue 3와 PHP를 사용해 구현한 AI 기반 음악 플레이어 웹 서비스",
     src: Mute,
     info: [
       { label: "구분", value: "팀 프로젝트" },
@@ -56,6 +59,7 @@ export const teamProjectInfo = [
   },
   {
     title: "GOREON",
+    summary: "React와 Express, MongoDB 기반의 AI 가전제품 비교 쇼핑몰",
     src: Goreon,
     info: [
       { label: "구분", value: "팀 프로젝트" },
@@ -119,6 +123,7 @@ export const teamProjectInfo = [
 export const personalProjectInfo = [
   {
     title: "BnbNetWork (HTML , 반응형)",
+    summary: "Bootstrap을 활용해 기획부터 마이그레이션까지 진행한 자사 반응형 웹사이트",
     src: BnbNetWorks,
     info: [
       { label: "구분", value: "개인 프로젝트" },
@@ -144,6 +149,7 @@ export const personalProjectInfo = [
   },
   {
     title: "BnbNetWork (React)",
+    summary: "Styled-Components와 Kakao Maps API를 활용해 React로 리팩토링한 자사 사이트",
     src: BnbNetworksReact,
     info: [
       { label: "구분", value: "개인 프로젝트" },
@@ -169,6 +175,7 @@ export const personalProjectInfo = [
   },
   {
     title: "SHOP",
+    summary: "Firebase 인증 및 어드민 관리 기능을 포함한 React 기반 의약품 쇼핑몰",
     src: Shop,
     info: [
       { label: "구분", value: "개인 프로젝트" },
@@ -195,6 +202,7 @@ export const personalProjectInfo = [
   },
   {
     title: "Netflix",
+    summary: "TypeScript와 TMDB API를 연동하여 타입 안정성을 높인 영화 정보 검색 사이트",
     src: Netflix,
     info: [
       { label: "구분", value: "개인 프로젝트" },
@@ -219,6 +227,7 @@ export const personalProjectInfo = [
   },
   {
     title: "Kakao Renewal",
+    summary: "PHP와 MySQL, jQuery를 사용해 풀스택 흐름을 반영한 카카오 리뉴얼 사이트",
     src: Kakao,
     info: [
       { label: "구분", value: "개인 프로젝트" },
@@ -244,6 +253,7 @@ export const personalProjectInfo = [
   },
   {
     title: "Portfolio",
+    summary: "숙련도 시각화 및 이메일 전송 기능을 갖춘 모던 반응형 포트폴리오 웹사이트",
     src: PortFolio2,
     info: [
       { label: "구분", value: "개인 프로젝트" },
@@ -271,7 +281,8 @@ export const personalProjectInfo = [
   },
   {
     title: "LoopNote",
-    src: PortFolio2,
+    summary: "OCR 오답 판독 및 Socratic AI 피드백을 적용한 프리미엄 Next.js 에듀테크 플랫폼",
+    src: LoopNote,
     info: [
       { label: "구분", value: "개인 프로젝트" },
       { label: "인원", value: "1명" },
@@ -301,7 +312,8 @@ export const personalProjectInfo = [
   },
   {
     title: "WorkLog",
-    src: PortFolio2,
+    summary: "레거시 그누보드5 프레임워크를 100% 반응형 사내 포털로 전면 개편한 프로젝트",
+    src: WorkLog,
     info: [
       { label: "구분", value: "개인 프로젝트" },
       { label: "인원", value: "1명" },

@@ -5,6 +5,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// 전역 lenis 인스턴스 — 다른 컴포넌트에서 stop/start 가능
+export let lenisInstance = null;
+
 export function useLenis() {
   useEffect(() => {
     const lenis = new Lenis({
@@ -12,6 +15,8 @@ export function useLenis() {
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
     });
+
+    lenisInstance = lenis;
 
     lenis.on("scroll", ScrollTrigger.update);
 
@@ -24,6 +29,7 @@ export function useLenis() {
     return () => {
       gsap.ticker.remove(tickerCallback);
       lenis.destroy();
+      lenisInstance = null;
     };
   }, []);
 }

@@ -1,4 +1,7 @@
 # Logs
+.claude
+docs
+슬로건내용.md
 .env
 logs
 *.log

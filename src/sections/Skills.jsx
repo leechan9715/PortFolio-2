@@ -29,8 +29,8 @@ export function Skills() {
   const right = LightIcons.slice(10);
 
   return (
-    <section id="skills" ref={root} className="relative py-24 px-6 md:px-20">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" ref={root} className="relative py-24 px-6 md:px-20 lg:min-h-screen lg:flex lg:items-center">
+      <div className="w-full max-w-6xl mx-auto">
         <h2 className="skills-head text-center text-sm tracking-[0.3em] text-[var(--accent-glow)] uppercase mb-4">
           Tech Stack
         </h2>
