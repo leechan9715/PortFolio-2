@@ -12,8 +12,8 @@ const INFO_ITEMS = [
 const CERTIFICATIONS = [
   { title: "운전면허 1종 보통", year: "2016", issuer: "도로교통공단" },
   {
-    title: "웹디자인개발기능사 필기",
-    year: "2026",
+    title: "웹디자인개발기능사",
+    year: "2026 06",
     issuer: "한국산업인력공단",
   },
 ];
@@ -81,7 +81,9 @@ export function About() {
               </span>
             </h3>
             <p className="about-line text-base text-[var(--text-muted)] leading-relaxed mt-4 [word-break:keep-all]">
-              빛나는 디테일과 유연한 움직임으로 직관적인 흐름을 설계하고, 사용자 중심의 견고한 기술을 화면으로 구현하는 프론트엔드 개발자 이승찬입니다.
+              빛나는 디테일과 유연한 움직임으로 직관적인 흐름을 설계하고, 사용자
+              중심의 견고한 기술을 화면으로 구현하는 프론트엔드 개발자
+              이승찬입니다.
             </p>
           </div>
 
