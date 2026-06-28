@@ -1,96 +1,108 @@
 # Portfolio
 
-React와 Vite로 제작한 프론트엔드 개발자 이승찬의 포트폴리오 웹사이트입니다. 메인 화면에서는 프로필, 프로젝트 요약, 연락처, 운영 프로세스, 기술 스택을 한눈에 볼 수 있고, 프로젝트 둘러보기 버튼을 통해 상세 페이지로 자연스럽게 전환됩니다.
+React와 Vite로 제작한 프론트엔드 개발자 이승찬의 포트폴리오 웹사이트입니다. 인트로 연출 이후 하나의 페이지를 스크롤하며 Hero, About, Skills, Projects, Contact 섹션을 차례로 탐색하는 풀스크롤(full-scroll) 구조로 구성되어 있습니다.
 
 ## 프로젝트 소개
 
-이 프로젝트는 단순한 목록형 포트폴리오가 아니라, 카드형 대시보드 UI와 전환 애니메이션을 활용해 사용자에게 인터랙티브한 탐색 경험을 제공하는 것을 목표로 합니다.
+단순한 목록형 포트폴리오가 아니라, 부드러운 스크롤과 스크롤 기반 애니메이션을 활용해 한 페이지 안에서 인터랙티브한 탐색 경험을 제공하는 것을 목표로 합니다.
 
 주요 구성은 다음과 같습니다.
 
-- 메인 포트폴리오 화면
-- 프로젝트 상세 탭
-- 기술 스택 통계 탭
+- 최초 방문 시 한 번 재생되는 인트로 스플래시 연출
+- 스크롤 진행 표시줄과 모바일 드로어를 갖춘 상단 내비게이션
+- Hero · About · Skills · Projects · Contact 5개 섹션
+- 데스크탑에서 가로 스크롤로 펼쳐지는 프로젝트 섹션과 상세 모달
 - EmailJS 기반 문의 폼
-- 이력서 PDF 미리보기 모달
-- 연락처 및 GitHub 링크
 
 ## 기술 스택
 
-- React 19
-- Vite
-- Tailwind CSS
-- Redux Toolkit
-- React Redux
-- Swiper
+- React 19 (React Compiler)
+- Vite 8
+- Tailwind CSS v4
+- GSAP + ScrollTrigger (`@gsap/react`)
+- Lenis (부드러운 스크롤)
+- Swiper (모바일·태블릿 프로젝트 슬라이드)
 - EmailJS
-- React PDF
 - ESLint
 
 ## 주요 기능
 
-### 메인 화면
+### 인트로 & 내비게이션
 
-- 프로필 카드와 소개 문구 표시
-- 프로젝트 목록 카드 표시
-- 연락처 카드 표시
-- 기획, UI/UX 설계, 개발 구현, 배포 및 운영 프로세스 표시
-- 기술 스택 아이콘 슬라이더 제공
-- 기술 아이콘 클릭 시 마우스를 따라다니는 플로팅 아이콘 효과 제공
+- 좌우 문이 열리는 인트로 애니메이션을 최초 방문 시 1회 재생하고, `sessionStorage`로 재방문 시 생략
+- 인트로 재생 중에는 스크롤을 잠그고, 완료 후 ScrollTrigger 위치값을 재계산
+- 스크롤 진행도에 따라 상단에 그라데이션 진행 표시줄 표시
+- 모바일에서는 햄버거 버튼과 전체화면 드로어 메뉴 제공
 
-### 서브 페이지
+### Hero
 
-- `PROJECTS`, `SKILLS`, `CONTACT` 탭 구성
-- 전체, 개인 프로젝트, 팀 프로젝트 필터링
-- Swiper 기반 프로젝트 상세 슬라이드
-- 기술 스택 숙련도 게이지 애니메이션
-- 메인 화면으로 돌아가는 전환 애니메이션
+- 글자 단위로 등장하는 이름 애니메이션
+- 회전하는 SVG 오빗(orbit) 배경 그래픽
+- 기술 스택 칩과 스크롤 인디케이터
 
-### 문의 기능
+### About
+
+- 프로필 이미지 패럴랙스 효과(데스크탑)
+- 기본 정보, 자격증, 보유 기술을 스크롤 진입 시 순차 노출
+
+### Skills
+
+- 기술 스택 숙련도를 게이지로 표현
+- 섹션이 화면에 들어올 때 0%에서 목표값까지 애니메이션 재생
+
+### Projects
+
+- 전체 · 팀 프로젝트 · 개인 프로젝트 탭 필터
+- 데스크탑(1025px 이상): 섹션을 고정(pin)하고 카드를 가로로 스크롤하는 ScrollTrigger 연출
+- 모바일·태블릿: Swiper 기반 카드 슬라이드
+- 카드 클릭 시 프로젝트 상세 모달(정보 테이블, 기술 뱃지, 설명, 링크) 표시
+
+### Contact
 
 - EmailJS를 사용한 문의 메일 전송
-- 전송 중 상태 표시
-- 성공 및 실패 메시지 표시
-
-### 이력서 미리보기
-
-- `react-pdf`를 사용해 PDF 이력서를 모달 안에서 미리보기
-- 여러 페이지 PDF 렌더링 지원
-- 모달 외부 클릭 또는 닫기 버튼으로 종료
+- 전송 중 상태 표시 및 성공·실패 결과 모달
+- 연락처 카드(전화·이메일·GitHub) 제공
 
 ## 폴더 구조
 
 ```text
-PortFolio
+포트폴리오 리뉴얼 2
 ├─ public
 │  ├─ files
-│  │  └─ 이승찬_이력서.pdf
-│  └─ favicon.svg
+│  │  ├─ 이승찬_이력서.pdf
+│  │  ├─ MUTE_기획안.pdf
+│  │  └─ Goreon_기획안.pdf
+│  ├─ favicon.svg
+│  ├─ icons.svg
+│  └─ og-image.png
 ├─ src
 │  ├─ assets
-│  │  └─ img
-│  ├─ comopents
-│  │  ├─ Main.jsx
-│  │  ├─ SubPage.jsx
-│  │  ├─ Contact.jsx
-│  │  ├─ Pdf.jsx
-│  │  └─ ...
+│  │  └─ img            # 프로젝트 썸네일, 스킬 아이콘, 연락처/프로필 이미지
+│  ├─ components
+│  │  ├─ Intro.jsx
+│  │  ├─ Navbar.jsx
+│  │  ├─ ProjectCard.jsx
+│  │  ├─ ProjectModal.jsx
+│  │  └─ SkillBar.jsx
+│  ├─ sections
+│  │  ├─ Hero.jsx
+│  │  ├─ About.jsx
+│  │  ├─ Skills.jsx
+│  │  ├─ Projects.jsx
+│  │  └─ Contact.jsx
+│  ├─ hooks
+│  │  ├─ useLenis.js        # Lenis 인스턴스 + GSAP ticker 연동
+│  │  └─ useFullPageSnap.js # 데스크탑 섹션 스냅 스크롤
 │  ├─ data
-│  │  ├─ Main.js
-│  │  ├─ MainClass.js
-│  │  └─ SubPage.js
-│  ├─ store
-│  │  ├─ store.js
-│  │  └─ uiSlice.js
+│  │  ├─ ProjectData.js     # 팀·개인 프로젝트 데이터
+│  │  └─ SubPage.js         # 기술 스택 숙련도, 연락처 데이터
 │  ├─ App.jsx
-│  ├─ App.css
+│  ├─ index.css
 │  └─ main.jsx
 ├─ package.json
 ├─ vite.config.js
 └─ README.md
 ```
-
-> 현재 컴포넌트 폴더명은 `src/comopents`로 되어 있습니다.
 
 ## 실행 방법
 
@@ -134,41 +146,22 @@ VITE_EMAILJS_TEMPLATE_ID=your_template_id
 VITE_EMAILJS_PUBLIC_KEY=your_public_key
 ```
 
-`.env` 파일은 `.gitignore`에 포함되어 있으므로 저장소에 커밋하지 않습니다.
+`.env` 파일은 `.gitignore`에 포함되어 있으므로 저장소에 커밋하지 않습니다. EmailJS 환경 변수가 없으면 문의 기능은 정상적으로 동작하지 않습니다.
 
-## 최근 작업 내용
+## 스크롤 & 애니메이션 구조
 
-최근 Git 커밋 기준으로 다음 작업들이 반영되어 있습니다.
-
-- 이력서 PDF 미리보기 모달 추가
-- 이력서 미리보기 크기 조정
-- 문의 화면 스타일 정리
-- 컴포넌트 데이터 분리
-- 서브 페이지에서 메인 페이지로 돌아가기 애니메이션 추가
-- 메인 프로젝트 목록 이미지 연결
-- 이력서 PDF 갱신
-- 프로필 연락처와 이력서 링크 추가
-- 문의 폼 탭 추가
-- 프로젝트 필터와 추가 이미지 연결
+- `useLenis`: Lenis 인스턴스를 생성하고 GSAP ticker와 ScrollTrigger에 연결합니다. 인스턴스는 전역으로 공유되어 인트로·모달에서 스크롤을 잠그거나 재개할 때 사용합니다.
+- `useFullPageSnap`: 데스크탑(1025px 이상)에서 휠 이벤트를 가로채 섹션 단위로 스냅 스크롤합니다. Projects 섹션의 가로 스크롤 핀 구간은 통과 영역으로 처리합니다.
+- 각 섹션은 `@gsap/react`의 `useGSAP`와 ScrollTrigger를 사용해 진입 시 애니메이션을 재생합니다.
 
 ## 프로젝트 데이터 관리
 
 프로젝트, 기술 스택, 연락처 데이터는 컴포넌트 내부에 직접 작성하는 대신 `src/data` 폴더에서 관리합니다.
 
-- `src/data/Main.js`: 메인 화면 프로젝트 목록, 다크 테마 기술 아이콘, 운영 프로세스 데이터
-- `src/data/SubPage.js`: 서브 페이지 기술 스택 숙련도, 연락처 데이터
-- `src/data/MainClass.js`: 메인 화면 Tailwind 클래스 그룹
-
-## 상태 관리
-
-Redux Toolkit의 `uiSlice`를 사용해 메인 화면과 서브 페이지의 표시 상태 및 전환 상태를 관리합니다.
-
-- `isMainHidden`: 메인 화면 표시 여부
-- `isTransitioning`: 배경 및 화면 전환 애니메이션 상태
-- `showMain`, `hideMain`, `startMainTransition`, `startMainReturn`: 화면 전환 액션
+- `src/data/ProjectData.js`: 팀·개인 프로젝트의 제목, 요약, 상세 정보, 링크, 설명
+- `src/data/SubPage.js`: 기술 스택 숙련도(`LightIcons`)와 연락처(`ContactData`) 데이터
 
 ## 참고
 
-- 이력서 PDF 파일은 `public/files/이승찬_이력서.pdf` 경로를 사용합니다.
-- 문의 기능은 EmailJS 환경 변수가 없으면 정상적으로 동작하지 않습니다.
-- 이미지와 아이콘 리소스는 `src/assets/img`에 정리되어 있습니다.
+- 이미지와 아이콘 리소스는 `src/assets/img`에 정리되어 있으며, 실제 코드에서 import하는 파일만 유지합니다.
+- 이력서 및 기획안 PDF는 `public/files` 경로에 위치합니다.
